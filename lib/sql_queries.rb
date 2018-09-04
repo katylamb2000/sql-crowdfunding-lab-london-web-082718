@@ -14,23 +14,7 @@ HAVING Projects.id = pledges.project_id
 ORDER BY projects.title ASC;" 
 end
 
-
-# SELECT DISTINCT <TOP_specification> <select_list>
-# FROM <left_table>
-# <join_type> JOIN <right_table>
-# ON <join_condition>
-# WHERE <where_condition>
-# GROUP BY <group_by_list>
-# HAVING <having_condition>
-# ORDER BY <order_by_list>
-
-
-
-
-
-
 def selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_name
-# "SELECT pledges.user_name, age, ledge_amount  "
 "SELECT users.name, users.age, SUM(amount) 
 FROM users, pledges 
 ON pledges.user_id = users.id
@@ -39,15 +23,6 @@ ORDER BY name;"
 end
 
 def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-# "SELECT projects.title, SUM(amount) - Projects.funding_goal
-# FROM projects
-# INNER JOIN pledges
-# ON pledges.project_id = projects.id
-# ORDER BY SUM(amount) Projects.funding_goal > -1 DESC LIMIT 2";
-# # DESC
-# # GROUP BY projects.title"; 
-# end
-
 "SELECT Projects.title, SUM(amount) - Projects.funding_goal
 FROM projects
 INNER JOIN pledges 
@@ -64,21 +39,14 @@ ON pledges.user_id = users.id
 GROUP BY users.name
 ORDER BY SUM(amount) ";
 end
-# "SELECT Users.name, SUM(amount) FROM pledges INNER JOIN users 
-# ON pledges.user_id = users.id 
-# GROUP BY users.name ORDER BY SUM(amount) ASC;"
-# end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
 "SELECT projects.category, pledges.amount
 FROM pledges
 INNER JOIN projects
 ON pledges.project_id = projects.id 
-
 WHERE projects.category = 'music'";
 end
-
-# GROUP BY  projects.category 
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
 "SELECT projects.category, SUM(amount)
