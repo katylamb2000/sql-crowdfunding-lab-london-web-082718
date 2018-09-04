@@ -73,10 +73,15 @@ GROUP BY  projects.category ";
 end
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
-"SELECT projects.category, SUM(pledges.amount)
+"SELECT projects.category, SUM(amount)
 FROM pledges
 INNER JOIN projects
 ON pledges.project_id = projects.id 
-HAVING projects.category = 'books'
-GROUP BY  projects.category ";
+GROUP BY  projects.category
+HAVING projects.category = 'books'";
+
+"SELECT projects.category, SUM(amount) FROM pledges LEFT JOIN projects 
+ON pledges.project_id = projects.id 
+GROUP BY projects.category HAVING projects.category = 'books';" 
+end
 end
