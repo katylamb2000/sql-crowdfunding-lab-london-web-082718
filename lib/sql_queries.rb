@@ -61,7 +61,6 @@ def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_th
 FROM users
 INNER JOIN pledges, projects
 ON pledges.users_id = projects.id 
-WHERE projects.category = music
 GROUP BY projects.name
 ORDER BY amount, users.name";
 end
