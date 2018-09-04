@@ -33,11 +33,6 @@ end
 # HAVING <having_condition>
 # ORDER BY <order_by_list>
 
-"SELECT projects.category, pledges.amount 
-FROM pledges INNERJOIN projects 
-ON pledges.project_id = projects.id 
-WHERE projects.category = 'music';" 
-end
 
 
 
