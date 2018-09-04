@@ -48,13 +48,12 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
 # # GROUP BY projects.title"; 
 # end
 
-"SELECT Projects.title, SUM(amount)
+"SELECT Projects.title, SUM(amount) - Projects.funding_goal
 FROM projects
 INNER JOIN pledges 
 WHERE pledges.project_id = projects.id 
 GROUP BY Projects.title 
-HAVING SUM(amount) - Projects.funding_goal > -1
-ORDER BY SUM(amount) ";
+HAVING SUM(amount) - Projects.funding_goal > -1";
 end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
@@ -76,7 +75,7 @@ end
 # GROUP BY  projects.category 
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
-"SELECT projects.category, SUM(amount) - projects.funding_goal
+"SELECT projects.category, SUM(amount)
 FROM pledges
 INNER JOIN projects
 ON pledges.project_id = projects.id 
