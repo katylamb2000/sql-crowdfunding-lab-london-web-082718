@@ -38,14 +38,14 @@ GROUP BY pledges.user_id
 ORDER BY name;"
 end
 
-# def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
-# "SELECT projects.title, pledges.amount
-# FROM projects, pledges
-# ON pledges.project_id = projects.id
-# WHERE SUM (pledges.amount) > projects.funding_goal
-# GROUP BY projects.title"; 
-# # ORDER BY name;"
-# end
+def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_funding_goal
+"SELECT projects.title, pledges.amount
+FROM projects, pledges
+ON pledges.project_id = projects.id
+WHERE SUM (pledges.amount) > projects.funding_goal
+GROUP BY projects.title"; 
+# ORDER BY name;"
+end
 
 def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
 "SELECT users.name, SUM(amount)
