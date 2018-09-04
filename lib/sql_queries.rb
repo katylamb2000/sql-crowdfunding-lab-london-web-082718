@@ -79,9 +79,9 @@ INNER JOIN projects
 ON pledges.project_id = projects.id 
 GROUP BY  projects.category
 HAVING projects.category = 'books'";
+end
+# "SELECT projects.category, SUM(amount) FROM pledges LEFT JOIN projects 
+# ON pledges.project_id = projects.id 
+# GROUP BY projects.category HAVING projects.category = 'books';" 
 
-"SELECT projects.category, SUM(amount) FROM pledges LEFT JOIN projects 
-ON pledges.project_id = projects.id 
-GROUP BY projects.category HAVING projects.category = 'books';" 
-end
-end
+# end
