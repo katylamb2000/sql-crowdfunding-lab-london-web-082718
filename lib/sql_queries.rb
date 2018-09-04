@@ -33,7 +33,11 @@ end
 # HAVING <having_condition>
 # ORDER BY <order_by_list>
 
-
+"SELECT projects.category, pledges.amount 
+FROM pledges INNERJOIN projects 
+ON pledges.project_id = projects.id 
+WHERE projects.category = 'music';" 
+end
 
 
 
@@ -65,11 +69,12 @@ WHERE projects.category = music";
 end
 
 def selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category
-"SELECT projects.title, users.name, SUM(amount)
-FROM users, pledges, projects
+"SELECT projects.category, pledges.amount
+FROM pledges
+INNER JOIN projects
 ON pledges.projects_id = projects.id 
 WHERE projects.category = 'music'";
-end
+
 
 def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category
 "Write your SQL query Here"
